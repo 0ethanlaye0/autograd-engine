@@ -4,11 +4,11 @@ A minimal scalar-valued autograd engine and neural network library built from sc
 
 ## What's implemented
 
-- **`engine.py`** — The `Value` class: a scalar wrapper that builds a computation graph during the forward pass and supports automatic backpropagation via reverse-mode autodiff. Implements `+`, `*`, `**`, `/`, `-`, `exp`, `tanh`, and their exact local gradients. Topological sort ensures correct backward pass ordering.
+- **`engine.py`** — The `Value` class: a scalar wrapper that builds a computation graph during the forward pass and supports automatic backpropagation. Implements `+`, `*`, `**`, `/`, `-`, `exp`, `tanh`, and their exact local gradients. Topological sort ensures correct backward pass ordering.
 
-- **`nn.py`** — Neural network library built on top of `engine.py`: `Neuron` (single neuron with weights, bias, and tanh activation), `Layer` (a collection of neurons), and `MLP` (multi-layer perceptron composed of stacked layers). All modules expose a `parameters()` method for gradient-based optimization.
+- **`nn.py`** — Neural network library built on top of `engine.py`: `Neuron` (single neuron with weights, bias, and tanh activation), `Layer` (a collection of neurons), and `MLP` (multi-layer perceptron composed of stacked layers). All modules have a `parameters()` method for gradient-based optimization.
 
-- **`micrograd.ipynb`** — Step-by-step notebook showing the full build process: from manual backpropagation on a single expression, to automatic backprop with topological sort, to training an MLP on a nonlinear dataset.
+- **`micrograd.ipynb`** — Step-by-step notebook showing the full build process. It includes manual backpropagation on a single expression, to automatic backprop with topological sort, and the training an MLP on a nonlinear dataset.
 
 ## Quick demo
 
