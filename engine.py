@@ -57,6 +57,10 @@ class Value:
         out = self * (other ** -1)
         return out
 
+    def __rtruediv__(self, other):
+        other = other if isinstance(other, Value) else Value(other)
+        return other * self**-1
+
     def __neg__(self):
         out = self * -1
         return out
@@ -67,7 +71,7 @@ class Value:
         return out
 
     def __rsub__(self, other):  # other - self. If python can't do int + Value it checks if it can do Value - int
-        return self - other
+        return Value(other) - self
 
     def tanh(self):
         x = self.data
