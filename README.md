@@ -1,4 +1,4 @@
-# engine
+# autograd-engine
 
 A minimal scalar-valued autograd engine and neural network library built from scratch in Python, inspired by Andrej Karpathy's micrograd.
 
@@ -8,7 +8,7 @@ A minimal scalar-valued autograd engine and neural network library built from sc
 
 - **`nn.py`** — Neural network library built on top of `engine.py`: `Neuron` (single neuron with weights, bias, and tanh activation), `Layer` (a collection of neurons), and `MLP` (multi-layer perceptron composed of stacked layers). All modules expose a `parameters()` method for gradient-based optimization.
 
-- **`micrograd.ipynb`** — Step-by-step notebook showing the full build process: from manual backpropagation on a single expression, to automatic backprop with topological sort, to training an MLP on XOR — a problem that requires non-linearity and proves the engine is correct. This works with the help of Tanh()
+- **`micrograd.ipynb`** — Step-by-step notebook showing the full build process: from manual backpropagation on a single expression, to automatic backprop with topological sort, to training an MLP on a nonlinear dataset.
 
 ## Quick demo
 
@@ -47,6 +47,7 @@ print(f"Final loss: {loss.data:.4f}")  # should be near 0
 - Chain rule applied at each operation node for gradient calculation
 - Gradient accumulation fix (`+=` instead of `=`)
 - Topological sort for correct backward pass ordering
+- Non-linearity (tanh activation) which enables learning on problems a linear model cannot solve
 
 ## Credit
 
